@@ -1,5 +1,5 @@
 {
-  "name": "node-restaurants-mongoose",
+  "name": "node-blog-mongoose-chai",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "faker": "^3.1.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "node-env-file": "^0.1.8"
   }
 }
