@@ -19,9 +19,7 @@ app.use(bodyParser.json());
 app.get('/blogposts', (req, res) => {
   BlogPost
     .find()
-    // we're limiting because blogposts db has > 25,000
-    // documents, and that's too much to process/return
-    .limit(10)
+    .limit(99)
     // `exec` returns a promise
     .exec()
     // success callback: for each blogpost we got back, we'll
@@ -57,7 +55,7 @@ app.get('/blogposts/:id', (req, res) => {
 
 app.post('/blogposts', (req, res) => {
 
-  const requiredFields = ['name', 'borough', 'cuisine'];
+  const requiredFields = ['title', 'author', 'content'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -69,11 +67,10 @@ app.post('/blogposts', (req, res) => {
 
   BlogPost
     .create({
-      name: req.body.name,
-      borough: req.body.borough,
-      cuisine: req.body.cuisine,
-      grades: req.body.grades,
-      address: req.body.address})
+      title: req.body.title,
+      author: req.body.author,
+      content: req.body.content
+    })
     .then(
       blogpost => res.status(201).json(blogpost.apiRepr()))
     .catch(err => {
@@ -97,7 +94,7 @@ app.put('/blogposts/:id', (req, res) => {
   // if the user sent over any of the updatableFields, we udpate those values
   // in document
   const toUpdate = {};
-  const updateableFields = ['name', 'borough', 'cuisine', 'address'];
+  const updateableFields = ['title', 'author', 'content'];
 
   updateableFields.forEach(field => {
     if (field in req.body) {
