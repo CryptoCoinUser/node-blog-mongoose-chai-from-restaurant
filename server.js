@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
@@ -10,7 +11,8 @@ mongoose.Promise = global.Promise;
 // app like PORT and DATABASE_URL
 //const {PORT, DATABASE_URL} = require('./config');
 const {PORT} = require('./config');
-const {DATABASE_URL} = require('./.env');
+//const {DATABASE_URL} = require('./.env');
+const DATABASE_URL = process.env.DATABASE_URL;
 const {BlogPost} = require('./models');
 
 const app = express();

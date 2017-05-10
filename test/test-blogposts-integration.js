@@ -2,6 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 // this makes the should syntax available throughout
 // this module
@@ -10,8 +11,8 @@ const should = chai.should();
 const {BlogPost} = require('../models');
 const {app, runServer, closeServer} = require('../server');
 //const {DATABASE_URL} = require('../config');
-const {DATABASE_URL} = require('../.env');
-
+//const {DATABASE_URL} = require('../.env');
+const DATABASE_URL = process.env.DATABASE_URL;
 
 chai.use(chaiHttp);
 
