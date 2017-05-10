@@ -2,3 +2,11 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: Co+2Il7I+wisPKrYWK44fb3i7viv+2vYX5lY0AhZNwPfqc4ZQBNT57CMJhlbO2KMdvzedCLpHZFiv8ZttIlUC6VZkAlq8uop7PvU7wPevoIzv8f2OeQPNOewJkNAuf1li5/l+dzM88WdeVEFXpSPG/f0n2dUaWoZIqkfkrAlD92C5S/GPGJpFkiWcEV2lw5nwA9Wv3dKN+ofwDooeNOWClqsPNeVEF163yMWglJbVD5CxcmzSjUmpXYjPLcFfcFX4xtx9lr9Tz2jbxAqJzsK2LrVk2q+fZQ7EjDf+K6hlfdouMDLanoCXZmjEh1CmgH+BYi6qEDc3IIL4O3nPqUtoZQVkfcmD/QiHnoFgMEJFiaJm6mvN6Sr3BgA1+Gs7WEJiTuwwReGSqSkwhpNzYoOhB4d0ornInXRj3TeA2JheMkIxD0hvstwVTg81fvhaXxTEeBNv0TX4SP9zQV6Tze2sP36Ti5ScoXMxEZFakxGT8ZOFb7peBWb0sn4fdPah+1Vu+M/ONnmYsnQbuLfEtO9gRYoidmlzDsZK/s81sw79trmKHl7UEAsvcnrqcZBdSU1s7fyrp0U605CTpmsH/nT/ARJuyROWVi4J7P5ADeDnkEOvpTjQMMjutIFmIO55oC+lZhI3r3SPeQMPG8yyiWUttYxy+DhXs9P5jzWL94AJMk=
+  app: enigmatic-beyond-18975
+  on:
+    repo: CryptoCoinUser/node-blog-mongoose-chai-from-restaurant
+    branch: feature/with-tests
