@@ -8,7 +8,7 @@ mongoose.Promise = global.Promise;
 
 // config.js is where we control constants for entire
 // app like PORT and DATABASE_URL
-const {PORT, TEMP_DATABASE_URL} = require('./config');
+const {PORT, DATABASE_URL} = require('./config');
 const {BlogPost} = require('./models');
 
 const app = express();
@@ -129,7 +129,7 @@ app.use('*', function(req, res) {
 let server;
 
 // this function connects to our database, then starts the server
-function runServer(databaseUrl=TEMP_DATABASE_URL, port=PORT) {
+function runServer(databaseUrl=DATABASE_URL, port=PORT) {
 
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {

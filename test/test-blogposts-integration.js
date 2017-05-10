@@ -9,7 +9,7 @@ const should = chai.should();
 
 const {BlogPost} = require('../models');
 const {app, runServer, closeServer} = require('../server');
-const {TEMP_DATABASE_URL} = require('../config');
+const {DATABASE_URL} = require('../config');
 
 chai.use(chaiHttp);
 
@@ -61,7 +61,7 @@ describe('BlogPosts API resource', function() {
   // `seedBlogPostData` and `tearDownDb` each return a promise,
   // so we return the value returned by these function calls.
   before(function() {
-    return runServer(TEMP_DATABASE_URL);
+    return runServer(DATABASE_URL);
   });
 
   beforeEach(function() {
